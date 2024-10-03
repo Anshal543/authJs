@@ -13,8 +13,8 @@ import Link from "next/link";
 import { useActionState } from "react";
 
 const initialState = {
-  message : null,
-  type : null,
+  message : "",
+  type : "",
 }
 
 const Page = () => {
@@ -22,6 +22,7 @@ const Page = () => {
     authenticate,
     undefined
   );
+  console.log(state)
   return (
     <div className="flex justify-center items-center h-screen bg-gray-600 ">
       <Card className="min-w-[400px] max-w-[400px]">
@@ -35,10 +36,12 @@ const Page = () => {
             <Button type="submit" disabled={isPending}>
               Login
             </Button>
+            {
+              state && (
+                <p className="text-red-500">{state}</p>
+              )
+            }
           </form>
-          {state && (
-            <p className="text-red-600 text-sm">{state}</p>
-          )}
         </CardContent>
         <CardFooter className="flex flex-col gap-2 items-center ">
           <span>Or</span>

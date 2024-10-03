@@ -35,12 +35,18 @@ importers:
       next-auth:
         specifier: 5.0.0-beta.22
         version: 5.0.0-beta.22(next@15.0.0-rc.0(react-dom@19.0.0-rc-d8c90fa4-20241001(react@19.0.0-rc-d8c90fa4-20241001))(react@19.0.0-rc-d8c90fa4-20241001))(react@19.0.0-rc-d8c90fa4-20241001)
+      next-themes:
+        specifier: ^0.3.0
+        version: 0.3.0(react-dom@19.0.0-rc-d8c90fa4-20241001(react@19.0.0-rc-d8c90fa4-20241001))(react@19.0.0-rc-d8c90fa4-20241001)
       react:
         specifier: 19.0.0-rc-d8c90fa4-20241001
         version: 19.0.0-rc-d8c90fa4-20241001
       react-dom:
         specifier: 19.0.0-rc-d8c90fa4-20241001
         version: 19.0.0-rc-d8c90fa4-20241001(react@19.0.0-rc-d8c90fa4-20241001)
+      sonner:
+        specifier: ^1.5.0
+        version: 1.5.0(react-dom@19.0.0-rc-d8c90fa4-20241001(react@19.0.0-rc-d8c90fa4-20241001))(react@19.0.0-rc-d8c90fa4-20241001)
       tailwind-merge:
         specifier: ^2.5.2
         version: 2.5.2
@@ -1373,6 +1379,12 @@ packages:
       nodemailer:
         optional: true
 
+  next-themes@0.3.0:
+    resolution: {integrity: sha512-/QHIrsYpd6Kfk7xakK4svpDI5mmXP0gfvCoJdGpZQ2TOrQZmsW0QxjaiLn8wbIKjtm4BTSqLoix4lxYYOnLJ/w==}
+    peerDependencies:
+      react: ^16.8 || ^17 || ^18
+      react-dom: ^16.8 || ^17 || ^18
+
   next@15.0.0-rc.0:
     resolution: {integrity: sha512-IWcCvxUSCAuOK5gig4+9yiyt/dLKpIa+WT01Qcx4CBE4TtwJljyTDnCVVn64jDZ4qmSzsaEYXpb4DTI8qbk03A==}
     engines: {node: '>=18.17.0'}
@@ -1680,6 +1692,12 @@ packages:
 
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
+
+  sonner@1.5.0:
+    resolution: {integrity: sha512-FBjhG/gnnbN6FY0jaNnqZOMmB73R+5IiyYAw8yBj7L54ER7HB3fOSE5OFiQiE2iXWxeXKvg6fIP4LtVppHEdJA==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -3336,6 +3354,11 @@ snapshots:
       next: 15.0.0-rc.0(react-dom@19.0.0-rc-d8c90fa4-20241001(react@19.0.0-rc-d8c90fa4-20241001))(react@19.0.0-rc-d8c90fa4-20241001)
       react: 19.0.0-rc-d8c90fa4-20241001
 
+  next-themes@0.3.0(react-dom@19.0.0-rc-d8c90fa4-20241001(react@19.0.0-rc-d8c90fa4-20241001))(react@19.0.0-rc-d8c90fa4-20241001):
+    dependencies:
+      react: 19.0.0-rc-d8c90fa4-20241001
+      react-dom: 19.0.0-rc-d8c90fa4-20241001(react@19.0.0-rc-d8c90fa4-20241001)
+
   next@15.0.0-rc.0(react-dom@19.0.0-rc-d8c90fa4-20241001(react@19.0.0-rc-d8c90fa4-20241001))(react@19.0.0-rc-d8c90fa4-20241001):
     dependencies:
       '@next/env': 15.0.0-rc.0
@@ -3673,6 +3696,11 @@ snapshots:
     dependencies:
       is-arrayish: 0.3.2
     optional: true
+
+  sonner@1.5.0(react-dom@19.0.0-rc-d8c90fa4-20241001(react@19.0.0-rc-d8c90fa4-20241001))(react@19.0.0-rc-d8c90fa4-20241001):
+    dependencies:
+      react: 19.0.0-rc-d8c90fa4-20241001
+      react-dom: 19.0.0-rc-d8c90fa4-20241001(react@19.0.0-rc-d8c90fa4-20241001)
 
   source-map-js@1.2.1: {}
 
