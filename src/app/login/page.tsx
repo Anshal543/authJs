@@ -1,4 +1,5 @@
-"use client"
+import { auth, signIn } from "@/auth";
+import LoginForm from "@/components/login-form";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,22 +8,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { authenticate } from "@/lib/login.action";
+import { redirect } from "next/navigation";
 import Link from "next/link";
-import { useActionState } from "react";
 
-const initialState = {
-  message : "",
-  type : "",
-}
-
-const Page = () => {
-  const [state, formAction, isPending] = useActionState(
-    authenticate,
-    undefined
-  );
-  console.log(state)
+const Page = async() => {
+  const session = await auth()
+  if(session?.user) redirect('/')
   return (
     <div className="flex justify-center items-center h-screen bg-gray-600 ">
       <Card className="min-w-[400px] max-w-[400px]">
@@ -30,22 +21,14 @@ const Page = () => {
           <CardTitle>Login</CardTitle>
         </CardHeader>
         <CardContent className="flex flex-col gap-4">
-          <form action={formAction} className="flex flex-col gap-4 ">
-            <Input type="email" placeholder="Email" required name="email" />
-            <Input type="password" placeholder="password" required  name="password"/>
-            <Button type="submit" disabled={isPending}>
-              Login
-            </Button>
-            {
-              state && (
-                <p className="text-red-500">{state}</p>
-              )
-            }
-          </form>
+          <LoginForm />
         </CardContent>
         <CardFooter className="flex flex-col gap-2 items-center ">
           <span>Or</span>
-          <form action="">
+          <form action={async()=>{
+            "use server"
+            await signIn("google")
+          }}>
             <Button type="submit" variant={"outline"}>
               Login with Google
             </Button>

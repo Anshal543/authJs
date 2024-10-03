@@ -1,24 +1,15 @@
-import { CredentialsSignin } from "next-auth";
+"use server";
 import { signIn } from "@/auth";
-import { toast } from "sonner";
+import { CredentialsSignin } from "next-auth";
 
-export async function authenticate(
-  prevState: string|undefined,
-  formData: FormData
-) {
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
-
+export async function authenticate(email: string, password: string) {
   try {
     await signIn("credentials", {
       email,
       password,
-      redirect: true,
-      redirectTo: "/",
     });
   } catch (error) {
-    toast.error("Invalid credentials");
     const err = error as CredentialsSignin;
-    return "invalid credentials";
+    return err.cause;
   }
 }
